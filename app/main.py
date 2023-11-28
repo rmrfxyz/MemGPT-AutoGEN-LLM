@@ -7,7 +7,7 @@ import memgpt.autogen.interface as autogen_interface
 import memgpt.agent as agent       
 import memgpt.system as system
 import memgpt.utils as utils 
-import memgpt.presets as presets
+import memgpt.presets.presets as presets
 import memgpt.constants as constants 
 import memgpt.personas.personas as personas
 import memgpt.humans.humans as humans
@@ -17,8 +17,8 @@ import openai
 config_list = [
     {
         "api_type": "open_ai",
-        "api_base": "https://ekisktiz8hegao-5001.proxy.runpod.net/v1",
-        "api_key": "NULL",
+        "api_base": "http://192.168.1.3:1928/v1",
+        "api_key": "",
     },
 ]
 
@@ -28,12 +28,11 @@ llm_config = {"config_list": config_list, "seed": 42}
 # (https://github.com/microsoft/autogen/blob/main/notebook/agentchat_groupchat.ipynb)
 # If USE_MEMGPT is True, then we swap out the "coder" agent with a MemGPT agent
 
-USE_MEMGPT = True
+USE_MEMGPT = False
 
 ## api keys for the memGPT
-openai.api_base="https://ekisktiz8hegao-5001.proxy.runpod.net/v1"
-openai.api_key="NULL"
-
+openai.api_base="http://192.168.1.3:1928/v1"
+openai.api_key=""
 
 # The user agent
 user_proxy = autogen.UserProxyAgent(

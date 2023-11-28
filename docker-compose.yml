@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mem-auto-llm-0:
+    build: 
+      context: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "192.168.1.3:1928:1928"
+    tty: true
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ${MOUNT_SOURCE:-./my-project}
+        target: /app
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}      
